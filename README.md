@@ -27,42 +27,36 @@ It demonstrates real-world backend engineering concepts such as **async processi
 
 ---
 
-## 📁 Project Structure
-
 payment-gateway-async/
 │
 ├── backend/
-│ ├── src/
-│ │ ├── app.js
-│ │ ├── server.js
-│ │ ├── db.js
-│ │ ├── payments/
-│ │ │ └── payment.routes.js
-│ │ ├── workers/
-│ │ │ └── payment.worker.js
-│ │ └── config/
-│ │ ├── redis.js
-│ │ └── init.sql
-│ │
-│ ├── Dockerfile
-│ ├── Dockerfile.worker
-│ ├── package.json
-│ └── package-lock.json
+│   ├── src/
+│   │   ├── app.js
+│   │   ├── server.js
+│   │   ├── db.js
+│   │   ├── payments/
+│   │   │   └── payment.routes.js
+│   │   ├── workers/
+│   │   │   └── payment.worker.js
+│   │   └── config/
+│   │       ├── redis.js
+│   │       └── init.sql
+│   │
+│   ├── Dockerfile
+│   ├── Dockerfile.worker
+│   ├── package.json
+│   └── package-lock.json
 │
 ├── db/
-│ └── init.sql
+│   └── init.sql
 │
 ├── postgres/
-│ └── init.sql
+│   └── init.sql
 │
 ├── docker-compose.yml
 ├── .gitignore
 └── README.md
 
-yaml
-Copy code
-
----
 
 ## 🔁 Payment Workflow
 
