@@ -1,142 +1,44 @@
 # 🚀 Async Payment Gateway Backend
 
-This project is a production-style **asynchronous payment gateway backend** built using **Node.js, Express, PostgreSQL, Redis, and Docker**.
-
-It demonstrates real-world backend concepts such as **asynchronous processing, background workers, payment lifecycle management, and containerized services**.
-
----
-
-## ✨ Key Features
-
-- REST API for creating payments  
-- Asynchronous payment processing using Redis  
-- PostgreSQL for persistent payment storage  
-- Background worker for payment execution  
-- Dockerized setup for easy deployment  
-- Clean and modular backend architecture  
+A simple **asynchronous payment gateway backend** built with **Node.js, PostgreSQL, Redis, and Docker**.  
+Designed to demonstrate real-world backend concepts like background workers and async processing.
 
 ---
 
-## 🛠️ Tech Stack
+## ✨ Features
 
-- **Backend:** Node.js, Express.js  
-- **Database:** PostgreSQL  
-- **Queue:** Redis  
-- **Async Processing:** Worker-based architecture  
-- **Containerization:** Docker & Docker Compose  
-
----
-
-## 📁 Project Structure
-
-payment-gateway-async/
-│
-├── backend/
-│   ├── src/
-│   │   ├── app.js
-│   │   ├── server.js
-│   │   ├── db.js
-│   │   ├── payments/
-│   │   │   └── payment.routes.js
-│   │   ├── workers/
-│   │   │   └── payment.worker.js
-│   │   └── config/
-│   │       ├── redis.js
-│   │       └── init.sql
-│   │
-│   ├── Dockerfile
-│   ├── Dockerfile.worker
-│   ├── package.json
-│   └── package-lock.json
-│
-├── db/
-│   └── init.sql
-│
-├── postgres/
-│   └── init.sql
-│
-├── docker-compose.yml
-├── .gitignore
-└── README.md
+- Create payments via REST API  
+- Asynchronous payment processing  
+- PostgreSQL for data storage  
+- Redis-based background worker  
+- Fully Dockerized setup  
 
 ---
-
-## 🔁 Payment Workflow
-
-1. Client sends a payment request to the API  
-2. Payment is stored in PostgreSQL with status **PENDING**  
-3. Payment task is pushed to Redis queue  
-4. Background worker processes the payment asynchronously  
-5. Payment status is updated to **SUCCESS** or **FAILED**
-
----
-
-## 🌐 API Endpoints
-
-### Create Payment
-
-**POST** `/api/v1/payments`
-
-### Request Body
-
-```json
-{
-  "order_id": "order_123",
-  "amount": 50000,
-  "currency": "INR",
-  "method": "upi"
-}
-### Response
-
-```json
-{
-  "message": "Payment initiated successfully",
-  "status": "PENDING"
-}
 
 ## 🐳 Run with Docker
 
-### Build containers
-
 ```bash
 docker-compose build
-
-
-Services Started
+docker-compose up
+Services started:
 
 API Server
 
-PostgreSQL Database
+PostgreSQL
 
-Redis Server
+Redis
 
 Background Worker
 
-🎯 Assignment Objectives Achieved
+🔁 Payment Flow
 
-Asynchronous processing
+Client creates a payment
 
-Payment state management
+Status stored as PENDING
 
-RESTful API design
+Worker processes payment asynchronously
 
-Background worker architecture
-
-Docker-based deployment
-
-Industry-style project structure
-
-🚀 Future Enhancements
-
-Webhook handling
-
-Retry mechanism with exponential backoff
-
-Authentication and authorization
-
-Payment status APIs
-
-Logging and monitoring
+Status updated to SUCCESS or FAILED
 
 👤 Author
 
