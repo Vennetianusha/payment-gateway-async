@@ -86,17 +86,21 @@ payment-gateway-async/
   "currency": "INR",
   "method": "upi"
 }
-Response
+### Response
+
+```json
 {
   "message": "Payment initiated successfully",
   "status": "PENDING"
 }
-🐳 Run with Docker
-Build containers
+
+## 🐳 Run with Docker
+
+### Build containers
+
+```bash
 docker-compose build
 
-Start services
-docker-compose up
 
 Services Started
 
