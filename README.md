@@ -1,36 +1,34 @@
-🚀 Async Payment Gateway Backend
+# 🚀 Async Payment Gateway Backend
 
-This project is a production-style asynchronous payment gateway backend built using Node.js, Express, PostgreSQL, Redis, and Docker.
+This project is a production-style **asynchronous payment gateway backend** built using **Node.js, Express, PostgreSQL, Redis, and Docker**.
 
-It demonstrates real-world backend concepts such as asynchronous processing, background workers, payment lifecycle management, and containerized services.
+It demonstrates real-world backend concepts such as **asynchronous processing, background workers, payment lifecycle management, and containerized services**.
 
-✨ Key Features
+---
 
-REST API for creating payments
+## ✨ Key Features
 
-Asynchronous payment processing using Redis
+- REST API for creating payments  
+- Asynchronous payment processing using Redis  
+- PostgreSQL for persistent payment storage  
+- Background worker for payment execution  
+- Dockerized setup for easy deployment  
+- Clean and modular backend architecture  
 
-PostgreSQL for persistent payment storage
+---
 
-Background worker for payment execution
+## 🛠️ Tech Stack
 
-Dockerized setup for easy deployment
+- **Backend:** Node.js, Express.js  
+- **Database:** PostgreSQL  
+- **Queue:** Redis  
+- **Async Processing:** Worker-based architecture  
+- **Containerization:** Docker & Docker Compose  
 
-Clean and modular backend architecture
+---
 
-🛠️ Tech Stack
+## 📁 Project Structure
 
-Backend: Node.js, Express.js
-
-Database: PostgreSQL
-
-Queue: Redis
-
-Async Processing: Worker-based architecture
-
-Containerization: Docker & Docker Compose
-
-📁 Project Structure
 payment-gateway-async/
 │
 ├── backend/
@@ -61,37 +59,38 @@ payment-gateway-async/
 ├── .gitignore
 └── README.md
 
-🔁 Payment Workflow
+---
 
-Client sends a payment request to the API
+## 🔁 Payment Workflow
 
-Payment is stored in PostgreSQL with status PENDING
+1. Client sends a payment request to the API  
+2. Payment is stored in PostgreSQL with status **PENDING**  
+3. Payment task is pushed to Redis queue  
+4. Background worker processes the payment asynchronously  
+5. Payment status is updated to **SUCCESS** or **FAILED**
 
-Payment task is pushed to Redis queue
+---
 
-Background worker processes the payment asynchronously
+## 🌐 API Endpoints
 
-Payment status is updated to SUCCESS or FAILED
+### Create Payment
 
-🌐 API Endpoints
-Create Payment
+**POST** `/api/v1/payments`
 
-POST /api/v1/payments
+### Request Body
 
-Request Body
+```json
 {
   "order_id": "order_123",
   "amount": 50000,
   "currency": "INR",
   "method": "upi"
 }
-
 Response
 {
   "message": "Payment initiated successfully",
   "status": "PENDING"
 }
-
 🐳 Run with Docker
 Build containers
 docker-compose build
